@@ -14,9 +14,9 @@ public class Connection {
     private final BufferedReader reader;
     private final BufferedWriter writer;
 
-    public Connection(ConnectionListener connectionListener, String ipAdress, int port) throws Exception // this constructor create socket
+    public Connection(ConnectionListener connectionListener, String ipAdr, int port) throws Exception // this constructor create socket
     {
-         this(connectionListener, new Socket(ipAdress, port));
+         this(connectionListener, new Socket(ipAdr, port));
     }
 
     public Connection(ConnectionListener connectionListener, Socket socket) throws Exception  // this constructor taking ready socket
@@ -42,6 +42,7 @@ public class Connection {
                 }
             }
         });
+        thread.start();
     }
 
     public synchronized void sendString(String value){
